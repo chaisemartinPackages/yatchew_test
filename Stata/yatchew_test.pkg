@@ -1,0 +1,6 @@
+v 1.0.0
+d
+d 'YATCHEW_TEST': yatchew_test
+d
+f ado/yatchew_test.ado
+f plugin/msort.plugin
