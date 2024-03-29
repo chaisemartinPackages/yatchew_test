@@ -1,5 +1,5 @@
 Package: YatchewTest
-Title: Yatchew-de Chaisemartin-D'Haultfoeuille test for Linearity under Heteroskedasticity
+Title: Yatchew (1997), de Chaisemartin & D'Haultfoeuille (2024) Linearity Test
 Version: 1.0.0
 Authors@R: 
     c(person("Diego", "Ciccia", role = c("aut", "cre"), email = "diego.ciccia@sciencespo.fr"),

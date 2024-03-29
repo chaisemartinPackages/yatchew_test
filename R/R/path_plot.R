@@ -3,6 +3,7 @@
 #' @param D A vector with two vars
 #' @import ggplot2
 #' @returns A ggplot object
+#' @noRd
 path_plot <- function(df, D) {
     x_base <- df[[paste0(D[1],"_norm")]][c(1,nrow(df))]
     y_base <- df[[paste0(D[2],"_norm")]][c(1,nrow(df))]

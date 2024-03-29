@@ -4,34 +4,16 @@
 \alias{yatchew_test}
 \title{Main function}
 \usage{
-yatchew_test(data, Y, D, het_robust, ...)
+yatchew_test(data, ...)
 }
 \arguments{
-\item{data}{(data.frame) A dataframe.}
-
-\item{Y}{(char) Dependent variable.}
-
-\item{D}{(char) Independent variable.}
-
-\item{het_robust}{(logical) If FALSE, the test is performed under the assumption of homoskedasticity, i.e. \eqn{E[V(\varepsilon| X^2)] = \sigma^2}, as in Yatchew (1997). If TRUE, the test is performed using the heteroskedasticity-robust test statistic proposed by de Chaisemartin and D'Haultfoeuille (2024).}
+\item{data}{A data object.}
 
 \item{...}{Undocumented.}
 }
 \value{
-A list with test results.
+Method dispatch depending on the data object class.
 }
 \description{
 Heteroskedasticity Robust Test of Linearity (Yatchew, 1997; de Chaisemartin and D'Haultfoeuille, 2024)
-}
-\examples{
-df <- as.data.frame(matrix(NA, nrow = 1E3, ncol = 0))
-df$x <- rnorm(1E3)
-df$b <- runif(1E3)
-df$y <- 2 + df$b * df$x
-yatchew_test(data = df, Y = "y", D = "x")
-}
-\references{
-de Chaisemartin, C., d'Haultfoeuille, X., Gurgand, M. (2024). Two-way Fixed Effects and Difference-in-Difference Estimators in Heterogeneous Adoption Designs.
-
-Yatchew, A. (1997). An elementary estimator of the partial linear model.
 }
