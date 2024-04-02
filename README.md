@@ -70,7 +70,7 @@ Once the dataset is sorted by $I$, the program resumes from step (2) of the univ
 
 **het_robust**: (logical) If FALSE, the test is performed under the assumption of homoskedasticity (Yatchew, 1997). If TRUE, the test is performed using the heteroskedasticity-robust test statistic proposed by de Chaisemartin and D'Haultfoeuille (2024).
 
-**path_plot**: (logical) if TRUE and \code{D} has length 2, the assigned object will include a plot of the sequence of \eqn{(D_{1i}, D_{2i})}s that minimizes the euclidean distance between each pair of consecutive observations (see Overview for further details).
+**path_plot**: (logical) if TRUE and \code{D} has length 2, the assigned object will include a plot of the sequence of $(D_{1i}, D_{2i})$ that minimizes the euclidean distance between each pair of consecutive observations (see Overview for further details).
 
 ## References 
 
