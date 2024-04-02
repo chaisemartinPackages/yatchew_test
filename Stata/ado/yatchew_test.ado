@@ -1,12 +1,12 @@
 cap program drop yatchew_test
 program define yatchew_test, eclass
-syntax varlist(min = 2 numeric) [if] [, het_robust path_graph]
+syntax varlist(min = 2 numeric) [if] [, het_robust path_plot]
 
 local var_base = strtrim("`varlist'")
 local var_count = length("`var_base'") - length(subinstr("`var_base'", " ", "", .))
 
-if "`path_graph'" != "" & `var_count' != 2 {
-    noi di as err "The path_graph option can only be specified with 2 treatment variables."
+if "`path_plot'" != "" & `var_count' != 2 {
+    noi di as err "The path_plot option can only be specified with 2 treatment variables."
     exit
 }
 
@@ -87,7 +87,7 @@ else {
     sort q_groups_XX sort_id_temp_XX
     gen sort_id_XX = _n
 
-    if "`path_graph'" != "" {
+    if "`path_plot'" != "" {
         sort sort_id_XX
         local y_1 = D_1_XX_norm[1]
         local x_1 = D_2_XX_norm[1]
@@ -163,4 +163,7 @@ restore
 end
 
 cap program drop msort
-program msort, plugin
+cap program msort, plugin
+if _rc != 0 {
+    noi di as error "Plugin failed to load. Multivariate tests cannot be performed."
+}

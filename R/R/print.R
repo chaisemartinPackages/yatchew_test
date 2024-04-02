@@ -5,6 +5,7 @@
 #' @param suppress_intro The description of the test is not printed
 #' @param ... Undocumented
 #' @returns No return, custom print method for yatchew_test objects.
+#' @export
 #' @noRd
 print.yatchew_test <- function(x, suppress_intro = FALSE, ...) {
     clim <- ncol(x$results)
@@ -37,6 +38,7 @@ print.yatchew_test <- function(x, suppress_intro = FALSE, ...) {
 #' @param object A yatchew_test object
 #' @param ... Undocumented
 #' @returns No return, custom summary method for yatchew_test objects.
+#' @export
 #' @noRd
 summary.yatchew_test <- function(object, ...) {
     print(object)
