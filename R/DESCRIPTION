@@ -1,0 +1,24 @@
+Package: YatchewTest
+Title: Yatchew (1997), De Chaisemartin & D'Haultfoeuille (2024) Linearity Test
+Version: 1.0.0
+Authors@R: 
+    c(person("Diego", "Ciccia", role = c("aut", "cre"), email = "diego.ciccia@sciencespo.fr"),
+	person("Felix", "Knau", role = "aut", email = "felix.knau@sciencespo.fr"),
+	person("Doulo", "Sow", role = "aut", email = "doulo.sow@sciencespo.fr"),
+    person("Clément", "de Chaisemartin", role = "aut", email = "clement.dechaisemartin@sciencespo.fr"),
+    person("Xavier", "D'Haultfoeuille", role = "aut", email = "xavier.dhaultfoeuille@ensae.fr"))
+Maintainer: Diego Ciccia <diego.ciccia@sciencespo.fr>
+Description: Test of linearity originally proposed by Yatchew (1997) and improved by de Chaisemartin and D'Haultfoeuille (2024) to be robust under heteroskedasticity. 
+License: MIT + file LICENSE
+Imports: Rcpp, ggplot2
+LinkingTo: Rcpp
+Author: Diego Ciccia [aut, cre],
+	Felix Knau [aut],
+	Doulo Sow [aut],
+  	Clément de Chaisemartin [aut],
+    Xavier D'Haultfoeuille [aut]
+Encoding: UTF-8
+RoxygenNote: 7.2.3
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
