@@ -13,7 +13,7 @@
 
 \item{D}{(char) Independent variable.}
 
-\item{het_robust}{(logical) If FALSE, the test is performed under the assumption of homoskedasticity (Yatchew, 1997). If TRUE, the test is performed using the heteroskedasticity-robust test statistic proposed by de Chaisemartin and D'Haultfoeuille (2024).}
+\item{het_robust}{(logical) If FALSE, the test is performed under the assumption of homoskedasticity (Yatchew, 1997). If TRUE, the test is performed using the heteroskedasticity-robust test statistic proposed by de Chaisemartin, D'Haultfoeuille and Gurgand (2024).}
 
 \item{path_plot}{(logical) if TRUE and \code{D} has length 2, the assigned object will include a plot of the sequence of \eqn{(D_{1i}, D_{2i})}s that minimizes the euclidean distance between each pair of consecutive observations (see Overview for further details).}
 
@@ -27,9 +27,9 @@ General yatchew_test method for unclassed dataframes
 }
 \section{Overview}{
 
-This program implements the linearity test proposed by Yatchew (1997) and its heteroskedasticity-robust version proposed by de Chaisemartin & D'Haultfoeuille (2024).
+This program implements the linearity test proposed by Yatchew (1997) and its heteroskedasticity-robust version proposed by de Chaisemartin, D'Haultfoeuille & Gurgand (2024).
 In this overview, we sketch the intuition behind the two tests, as to motivate the use of the package and its options.
-Please refer to Yatchew (1997) and Section 3 of de Chaisemartin & D'Haultfoeuille (2024) for further details.
+Please refer to Yatchew (1997) and Section 3 of de Chaisemartin, D'Haultfoeuille & Gurgand (2024) for further details.
 
 Yatchew (1997) proposes a useful extension of the test with multiple independent variables.
 The program implements this extension when the \code{D} argument has length \eqn{> 1}.
@@ -60,7 +60,7 @@ Then, Yatchew (1997) shows that under homoskedasticity and regularity conditions
 Then, one can reject the linearity of \eqn{m(.)} with significance level \eqn{\alpha} if \eqn{T > \Phi(1-\alpha)}.
 
 If the homoskedasticity assumption fails, this test leads to overrejection.
-De Chaisemartin & D'Haultfoeuille (2024) propose a heteroskedasticity-robust version of the test statistic above.
+De Chaisemartin, D'Haultfoeuille and Gurgand (2024) propose a heteroskedasticity-robust version of the test statistic above.
 This version of the Yatchew (1997) test can be implemented by running the command with the option \code{het_robust = TRUE}.
 }
 

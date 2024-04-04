@@ -1,6 +1,6 @@
 # yatchew_test
 
-Yatchew (1997), de Chaisemartin & D'Haultfoeuille (2024) linearity test.
+Yatchew (1997), de Chaisemartin, D'Haultfoeuille & Gurgand (2024) linearity test.
 
 ## Setup
 
@@ -27,7 +27,7 @@ yatchew_test(data, Y, D, het_robust = FALSE, path_plot = FALSE)
 
 ## Overview
 
-This program implements the linearity test proposed by Yatchew (1997) and its heteroskedasticity-robust version proposed by de Chaisemartin & D'Haultfoeuille (2024).  In this overview, we sketch the intuition behind the two tests, as to motivate the use of the package and its options. Please refer to Yatchew (1997) and Section 3 of de Chaisemartin & D'Haultfoeuille (2024) for further details.
+This program implements the linearity test proposed by Yatchew (1997) and its heteroskedasticity-robust version proposed by de Chaisemartin, D'Haultfoeuille & Gurgand (2024).  In this overview, we sketch the intuition behind the two tests, as to motivate the use of the package and its options. Please refer to Yatchew (1997) and Section 3 of de Chaisemartin, D'Haultfoeuille & Gurgand (2024) for further details.
 
 Yatchew (1997) proposes a useful extension of the test with multiple independent variables. The program implements this extension when the *D* argument has length $> 1$. It should be noted that the power and consistency of the test in the multivariate case are not backed by proven theoretical results. We implemented this extension to allow for testing and exploratory research. Future theoretical exploration of the multivariate test will depend on the demand and usage of the package.
 
@@ -41,7 +41,7 @@ Let $Y$ and $D$ be two random variables. Let $m(D) = E[Y|D]$. The null hypothesi
 Heuristically, the validity of step (3) derives from the fact that $Y_{(i)} - Y_{(i-1)}$ = $m(D_{(i)}) - m(D_{(i-1)})$ + $\varepsilon_{(i)} - \varepsilon_{(i-1)}$ and the first difference term is close to zero for $D_{(i)} \approx D_{(i-1)}$. Sorting at step (1) ensures that consecutive $D_{(i)}s$  are as close as possible, and when the sample size goes to infinity the distance between consecutive observations goes to zero. Then, Yatchew (1997) shows that under homoskedasticity and regularity conditions $$T := \sqrt{G}\left(\dfrac{\hat{\sigma}^2_{\text{lin}}}{\hat{\sigma}^2_{\text{diff}}}-1\right) \stackrel{d}{\longrightarrow} \mathcal{N}\left(0,1\right).$$
 Then, one can reject the linearity of $m(.)$ with significance level $\alpha$ if $T > \Phi(1-\alpha)$. 
 
-If the homoskedasticity assumption fails, this test leads to overrejection. De Chaisemartin & D'Haultfoeuille (2024) propose a heteroskedasticity-robust version of the test statistic above. This version of the Yatchew (1997) test can be implemented by running the command with the option het_robust (Stata) or het_robust = TRUE (R).
+If the homoskedasticity assumption fails, this test leads to overrejection. De Chaisemartin, D'Haultfoeuille & Gurgand (2024) propose a heteroskedasticity-robust version of the test statistic above. This version of the Yatchew (1997) test can be implemented by running the command with the option het_robust (Stata) or het_robust = TRUE (R).
 
 ## Multivariate Yatchew Test
 Let $\textbf{D}$ be a vector of $K$ random variables. Let $g(\textbf{D}) = E[Y|\textbf{D}]$. Denote with $||.,.||$ the Euclidean distance between two vectors. The null hypothesis of the multivariate test is $g(\textbf{D}) = \alpha_0 + A'\textbf{D}$, with $A = (\alpha_1,..., \alpha_K)$, for $K+1$ real numbers $\alpha_0$, $\alpha_1$, ..., $\alpha_K$. This means that, under the null, $g(.)$ is linear in $\textbf{D}$. Following the same logic as the univariate case, in a dataset with $N$ i.i.d. realisations of $(Y, \textbf{D})$ we can approximate the first difference $\Delta \varepsilon$ by $\Delta Y$ valuing $g(.)$ between consecutive observations. The program runs a nearest neighbor algorithm to find the sequence of observations such that the Euclidean distance between consecutive positions is minimized. The algorithm has been programmed in C++ and it has been integrated in Stata via OS-specific plugins and in R thanks to the Rcpp library. 
