@@ -4,3 +4,6 @@ d 'YATCHEW_TEST': yatchew_test
 d
 f ado/yatchew_test.ado
 f plugin/msort.plugin
+f help/yatchew_test.sthlp
+f help/yatchew_test_multivariate.html
+f help/yatchew_test_univariate.html
