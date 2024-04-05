@@ -98,8 +98,8 @@ distance between each pair of consecutive observations
 {phang2}{stata gen Y = 1 + D + D1^2}{p_end}
 
 {phang2}{stata yatchew_test Y D}{p_end}
-{phang2}{stata yatchew_test Y D1}{p_end}
-{phang2}{stata yatchew_test Y D D1}{p_end}
+{phang2}{stata yatchew_test Y D1, het_robust}{p_end}
+{phang2}{stata yatchew_test Y D D1, path_plot}{p_end}
 
 {marker saved_results}{...}
 {title:Saved results}
