@@ -11,6 +11,7 @@ net install yatchew_test, from("https://raw.githubusercontent.com/ChaisemartinPa
 
 ### R
 ```r
+install.packages("YatchewTest")
 
 ```
 
