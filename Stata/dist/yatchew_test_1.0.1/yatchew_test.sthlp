@@ -59,6 +59,16 @@ Future theoretical exploration of the multivariate test will depend on the deman
 
 {browse "yatchew_test_multivariate.html": Multivariate Yatchew Test}
 
+{marker plugins}{...}
+{title:Plugins}
+{p 4 4}
+The command uses a C++ plugin to run the Nearest 
+Neighbor Algorithm. So far, the plugin has been compiled
+only for Windows OS. Compiling for other OS (namely, MacOS
+and mainstream Linux distros) will depend on the future demand for
+package updates.
+{p_end}
+
 {marker options}{...}
 {title:Options}
 
