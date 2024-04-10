@@ -4,7 +4,7 @@ Yatchew (1997), de Chaisemartin, D'Haultfoeuille & Gurgand (2024) linearity test
 
 ## Setup
 
-### Stata (GitHub - Windows Only Plugin)
+### Stata (GitHub)
 ```r
 net install yatchew_test, from("https://raw.githubusercontent.com/ChaisemartinPackages/yatchew_test/main/Stata") replace
 net get yatchew_test, from("https://raw.githubusercontent.com/ChaisemartinPackages/yatchew_test/main/Stata") replace
