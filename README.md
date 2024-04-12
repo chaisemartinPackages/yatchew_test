@@ -4,12 +4,12 @@ Yatchew (1997), de Chaisemartin, D'Haultfoeuille & Gurgand (2024) linearity test
 
 ## Setup
 
-### Stata (GitHub)
+### Stata (SSC)
 ```r
 ssc install yatchew_test, replace
 ```
 
-### R
+### R (CRAN)
 ```r
 install.packages("YatchewTest")
 
