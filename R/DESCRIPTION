@@ -1,6 +1,6 @@
 Package: YatchewTest
 Title: Yatchew (1997), De Chaisemartin, D'Haultfoeuille & Gurgand (2024) Linearity Test
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: 
     c(person("Diego", "Ciccia", role = c("aut", "cre"), email = "diego.ciccia@sciencespo.fr"),
 	person("Felix", "Knau", role = "aut", email = "felix.knau@sciencespo.fr"),
