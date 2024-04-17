@@ -93,7 +93,7 @@ yatchew_test <- function(data, ...) {
 #' @export
 yatchew_test.data.frame <- function(data, Y, D, het_robust = FALSE, path_plot = FALSE, ...){    
     args <- list()
-    for (v in names(formals(yatchew_test))) {
+    for (v in names(formals(yatchew_test.data.frame))) {
         if (!(v %in% c("data", "..."))) {
             args[[v]] <- get(v)
         }
@@ -155,6 +155,7 @@ yatchew_test.data.frame <- function(data, Y, D, het_robust = FALSE, path_plot = 
         res <- append(res, list(grout))
         names(res)[length(res)] <- "plot"        
     }
+    res$null <- "E[Y|D] is linear in D"
     class(res) <- "yatchew_test"
     return(res)
 }
