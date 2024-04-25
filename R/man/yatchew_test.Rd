@@ -15,5 +15,5 @@ yatchew_test(data, ...)
 Method dispatch depending on the data object class.
 }
 \description{
-Test of Linearity of a Conditional Expectation Function (Yatchew, 1997; de Chaisemartin, D'Haultfoeuille and Gurgand, 2024)
+Test of Linearity of a Conditional Expectation Function (Yatchew, 1997; de Chaisemartin and D'Haultfoeuille, 2024)
 }
