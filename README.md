@@ -1,6 +1,6 @@
 # yatchew_test
 
-Yatchew (1997), de Chaisemartin, D'Haultfoeuille & Gurgand (2024) linearity test.
+Yatchew (1997), de Chaisemartin and D'Haultfoeuille (2024) linearity test.
 
 ## Setup
 
@@ -28,7 +28,7 @@ yatchew_test(data, Y, D, het_robust = FALSE, path_plot = FALSE)
 
 ## Overview
 
-This program implements the linearity test proposed by Yatchew (1997) and its heteroskedasticity-robust version proposed by de Chaisemartin, D'Haultfoeuille & Gurgand (2024).  In this overview, we sketch the intuition behind the two tests, as to motivate the use of the package and its options. Please refer to Yatchew (1997) and Section 3 of de Chaisemartin, D'Haultfoeuille & Gurgand (2024) for further details.
+This program implements the linearity test proposed by Yatchew (1997) and its heteroskedasticity-robust version proposed by de Chaisemartin and D'Haultfoeuille (2024).  In this overview, we sketch the intuition behind the two tests, as to motivate the use of the package and its options. Please refer to Yatchew (1997) and Section 3 of de Chaisemartin and D'Haultfoeuille (2024) for further details.
 
 Yatchew (1997) proposes a useful extension of the test with multiple independent variables. The program implements this extension when the *D* argument has length $> 1$. It should be noted that the power and consistency of the test in the multivariate case are not backed by proven theoretical results. We implemented this extension to allow for testing and exploratory research. Future theoretical exploration of the multivariate test will depend on the demand and usage of the package.
 
@@ -75,6 +75,6 @@ Once the dataset is sorted by $I$, the program resumes from step (2) of the univ
 
 ## References 
 
-de Chaisemartin, C., d'Haultfoeuille, X., Gurgand, M. ([2024](https://ssrn.com/abstract=4284811)). Two-way Fixed Effects and Difference-in-Difference Estimators in Heterogeneous Adoption Designs.
+de Chaisemartin, C., D'Haultfoeuille, X. ([2024](https://ssrn.com/abstract=4284811)). Two-way Fixed Effects and Difference-in-Difference Estimators in Heterogeneous Adoption Designs.
 
 Yatchew, A. ([1997](https://doi.org/10.1016/S0165-1765(97)00218-8)). An elementary estimator of the partial linear model.
