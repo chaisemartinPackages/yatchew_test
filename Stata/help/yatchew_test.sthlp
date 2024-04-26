@@ -132,7 +132,7 @@ Doulo Sow, CREST-ENSAE, France.
 
 {title:Contact}
 {p 4 4}
-{browse "mailto:chaisemartin.packages@gmail.com":chaisemartin.packages@gmail.com}
+If you wish to inquire about the functionalities of this package or to report bugs/suggestions, feel free to post your question in the Issue section of the {browse "https://github.com/chaisemartinPackages/yatchew_test":yatchew_test GitHub repository}. 
 {p_end}
 
 {title:Acknowledgement}
