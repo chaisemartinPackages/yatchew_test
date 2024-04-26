@@ -60,7 +60,7 @@ Then, Yatchew (1997) shows that under homoskedasticity and regularity conditions
 Then, one can reject the linearity of \eqn{m(.)} with significance level \eqn{\alpha} if \eqn{T > \Phi(1-\alpha)}.
 
 If the homoskedasticity assumption fails, this test leads to overrejection.
-De Chaisemartin, D'Haultfoeuille and Gurgand (2024) propose a heteroskedasticity-robust version of the test statistic above.
+De Chaisemartin and D'Haultfoeuille (2024) propose a heteroskedasticity-robust version of the test statistic above.
 This version of the Yatchew (1997) test can be implemented by running the command with the option \code{het_robust = TRUE}.
 }
 
@@ -93,6 +93,12 @@ By convention, the program computes \eqn{(2\lceil \log_{10} N \rceil)^K} subcube
 
 Once the dataset is sorted by \eqn{I}, the program resumes from step (2) of the univariate case.
 }
+}
+
+\section{Contacts}{
+
+
+If you wish to inquire about the functionalities of this package or to report bugs/suggestions, feel free to post your question in the Issues section of the \href{https://github.com/chaisemartinPackages/yatchew_test}{yatchew_test GitHub repository}.
 }
 
 \examples{
