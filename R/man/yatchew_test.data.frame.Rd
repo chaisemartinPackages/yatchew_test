@@ -4,7 +4,7 @@
 \alias{yatchew_test.data.frame}
 \title{General yatchew_test method for unclassed dataframes}
 \usage{
-\method{yatchew_test}{data.frame}(data, Y, D, het_robust = FALSE, path_plot = FALSE, ...)
+\method{yatchew_test}{data.frame}(data, Y, D, het_robust = FALSE, path_plot = FALSE, order = 1, ...)
 }
 \arguments{
 \item{data}{(data.frame) A dataframe.}
@@ -16,6 +16,8 @@
 \item{het_robust}{(logical) If FALSE, the test is performed under the assumption of homoskedasticity (Yatchew, 1997). If TRUE, the test is performed using the heteroskedasticity-robust test statistic proposed by de Chaisemartin and D'Haultfoeuille (2024).}
 
 \item{path_plot}{(logical) if TRUE and \code{D} has length 2, the assigned object will include a plot of the sequence of \eqn{(D_{1i}, D_{2i})}s that minimizes the euclidean distance between each pair of consecutive observations (see Overview for further details).}
+
+\item{order}{(nonnegative integer k) If this option is specified, the program tests whether the conditional expectation of \code{Y} given \code{D} is a linear function of a k-degree polynomial in \code{D}. The command tests the hypothesis that the conditional mean of \code{Y} given \code{D} is constant whenever \code{order = 0} is specified. Lastly, the \code{order} option is set to 1 (default) whenever the \code{het_robust} option is also specified.}
 
 \item{...}{Undocumented.}
 }
