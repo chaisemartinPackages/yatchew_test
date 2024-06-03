@@ -10,12 +10,6 @@ if "`order'" != "" {
     }
 }
 
-if "`order'" != "" & "`het_robust'" != "" {
-    noi di as err "order and het_robust cannot be speficied together."
-    noi di as err "The program will continue with order(1)."
-    local order = 1
-}
-
 local var_base = strtrim("`varlist'")
 local var_count = length("`var_base'") - length(subinstr("`var_base'", " ", "", .))
 
