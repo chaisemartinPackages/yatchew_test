@@ -17,6 +17,7 @@ yatchew_test <- function(data, ...) {
 #' @param Y (char) Dependent variable.
 #' @param D (char) Independent variable.
 #' @param het_robust (logical) If FALSE, the test is performed under the assumption of homoskedasticity (Yatchew, 1997). If TRUE, the test is performed using the heteroskedasticity-robust test statistic proposed by de Chaisemartin and D'Haultfoeuille (2024).
+#' @param order (nonnegative integer k) If this option is specified, the program tests whether the conditional expectation of \code{Y} given \code{D} is a linear function of a k-degree polynomial in \code{D}. The command tests the hypothesis that the conditional mean of \code{Y} given \code{D} is constant whenever \code{order = 0} is specified.
 #' @param path_plot (logical) if TRUE and \code{D} has length 2, the assigned object will include a plot of the sequence of \eqn{(D_{1i}, D_{2i})}s that minimizes the euclidean distance between each pair of consecutive observations (see Overview for further details).
 #' @param ... Undocumented.
 #' @section Overview:
@@ -96,7 +97,7 @@ yatchew_test <- function(data, ...) {
 #' @returns A list with test results.
 #' @importFrom stats as.formula lm pnorm var
 #' @export
-yatchew_test.data.frame <- function(data, Y, D, het_robust = FALSE, path_plot = FALSE, ...){    
+yatchew_test.data.frame <- function(data, Y, D, het_robust = FALSE, path_plot = FALSE, order = 1, ...){    
     args <- list()
     for (v in names(formals(yatchew_test.data.frame))) {
         if (!(v %in% c("data", "..."))) {
@@ -106,31 +107,54 @@ yatchew_test.data.frame <- function(data, Y, D, het_robust = FALSE, path_plot = 
     res <- list(args = args)
     grout <- NULL
 
+    if (order %% 1 != 0) {
+        stop("Invalid order input.")
+    }
+    if (length(D) != 1 & order != 1) {
+        stop("When the order option is specified, the D argument can only contain one variable.")
+    }
+
     if (isTRUE(path_plot) & length(D) != 2) {
         stop("path_plot can be requested only with 2 treatment variables.")
     }
 
     data <- subset(data, !is.na(data[[Y]]))
+    pol_D <- c()
     for (v in D) {
         data <- subset(data, !is.na(data[[v]]))
     }
     if (length(D) == 1) {
        data <- data[order(data[[D]], data[[Y]]), ]
-       reg_formula <- paste0(Y,"~",D)
+       if (order == 0) {
+            reg_formula <- paste0(Y,"~1")
+       } else {
+            reg_formula <- paste0(Y,"~",D)
+            if (order > 1) {
+                for (j in 2:order) {
+                    data[[paste0("D_",j,"_XX")]] <- data[[D[1]]]^j
+                    pol_D <- c(pol_D, paste0("D_",j,"_XX"))
+                    reg_formula <- paste0(reg_formula,"+", paste0("D_",j,"_XX"))
+                }
+            }
+       }
     } else {
         data <- nearest_neighbor_sort(data, D)
         if (length(D) == 2 & isTRUE(path_plot)) {
             grout <- path_plot(data, D)
         }
         reg_formula <- paste0(Y,"~",D[1])
-        for (j in 1:length(D)) {
+        for (j in 2:length(D)) {
             reg_formula <- paste0(reg_formula,"+",D[j])
         }
     }
 
     # Variance of residuals from linear regression
     coef_lin <- lm(as.formula(reg_formula), data = data)$coefficients
-    data$e_lin <- data[[Y]] - (coef_lin[1] + as.matrix(data[D], ncol = length(D)) %*% coef_lin[2:length(coef_lin)])
+    if (order == 0) {
+        data$e_lin <- data[[Y]] - coef_lin[1]
+    } else {
+        data$e_lin <- data[[Y]] - (coef_lin[1] + as.matrix(data[c(D, pol_D)], ncol = length(D)) %*% coef_lin[2:length(coef_lin)])
+    }
     var_lin <- var(data$e_lin, na.rm = TRUE)
 
     # Variance of residuals from nonparametric model
@@ -160,7 +184,11 @@ yatchew_test.data.frame <- function(data, Y, D, het_robust = FALSE, path_plot = 
         res <- append(res, list(grout))
         names(res)[length(res)] <- "plot"        
     }
-    res$null <- "E[Y|D] is linear in D"
+    deg_ext <- ""
+    if (order != 1) {
+        deg_ext <- sprintf(" a degree %.0f polynomial in", order)
+    } 
+    res$null <- sprintf("E[Y|D] is linear in%s D", deg_ext)
     class(res) <- "yatchew_test"
     return(res)
 }

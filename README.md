@@ -17,13 +17,13 @@ install.packages("YatchewTest")
 
 ## Syntax
 ### Stata 
-```r
-yatchew_test varlist(min = 2 numeric) [if] [, het_robust path_plot]
+```stata
+yatchew_test varlist(min = 2 numeric) [if] [, het_robust path_plot order(#)]
 ```
 
 ### R (Method dispatch for generic data.frame objects)
 ```r
-yatchew_test(data, Y, D, het_robust = FALSE, path_plot = FALSE)
+yatchew_test(data, Y, D, het_robust = FALSE, path_plot = FALSE, order = 1)
 ```
 
 ## Overview
@@ -72,6 +72,8 @@ Once the dataset is sorted by $I$, the program resumes from step (2) of the univ
 **het_robust**: (logical) If FALSE, the test is performed under the assumption of homoskedasticity (Yatchew, 1997). If TRUE, the test is performed using the heteroskedasticity-robust test statistic proposed by de Chaisemartin and D'Haultfoeuille (2024).
 
 **path_plot**: (logical) if TRUE and argument D has length 2, the assigned object will include a plot of the sequence of $(D_{1i}, D_{2i})$ that minimizes the euclidean distance between each pair of consecutive observations (see Overview for further details).
+
+**order**: (nonnegative integer $k$) If this option is specified, the program tests whether the conditional expectation of $Y$ given $D$ is a linear function of a $k$-degree polynomial in $D$. The command tests the hypothesis that the conditional mean of $Y$ given $D$ is constant whenever `order = 0` is specified.
 
 ## References 
 
