@@ -79,8 +79,7 @@ whether the conditional expectation of {cmd:Y} given {cmd:D} is
 a linear function of a {it:#}-degree polynomial in {cmd:D}.
 The command tests the hypothesis that the conditional
 mean of {cmd:Y} given {cmd:D} is constant whenever {cmd:order(}{it:0}{cmd:)}
-is specified. Lastly, the {cmd:order} option is set to 1 (default)
-whenever the {cmd:het_robust} option is also specified.
+is specified.
 {p_end}
 
 {p 4 4}
