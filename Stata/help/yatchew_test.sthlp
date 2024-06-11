@@ -17,7 +17,7 @@
 {title:Syntax}
 
 {p 4 4}
-{cmd:yatchew_test Y D} {if}
+{cmd:yatchew_test Y D [if]}
 [{cmd:,}
 {cmd:het_robust}
 {cmd:order(}{it:#}{cmd:)}
@@ -76,10 +76,10 @@ test statistic proposed by de Chaisemartin and D'Haultfoeuille (2024).
 {cmd:order(}{it:#}{cmd:)}
 If this option is specified, the program tests
 whether the conditional expectation of {cmd:Y} given {cmd:D} is
-a linear function of a {it:#}-degree polynomial in {cmd:D}.
-The command tests the hypothesis that the conditional
-mean of {cmd:Y} given {cmd:D} is constant whenever {cmd:order(}{it:0}{cmd:)}
-is specified.
+a {it:#}-degree polynomial in {cmd:D}.
+With {cmd:order(}{it:0}{cmd:)}, the command tests 
+the hypothesis that the conditional mean of {cmd:Y} 
+given {cmd:D} is constant.
 {p_end}
 
 {p 4 4}
