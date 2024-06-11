@@ -73,7 +73,7 @@ Once the dataset is sorted by $I$, the program resumes from step (2) of the univ
 
 **path_plot**: (logical) if TRUE and argument D has length 2, the assigned object will include a plot of the sequence of $(D_{1i}, D_{2i})$ that minimizes the euclidean distance between each pair of consecutive observations (see Overview for further details).
 
-**order**: (nonnegative integer $k$) If this option is specified, the program tests whether the conditional expectation of $Y$ given $D$ is a linear function of a $k$-degree polynomial in $D$. The command tests the hypothesis that the conditional mean of $Y$ given $D$ is constant whenever `order = 0` is specified.
+**order**: (nonnegative integer $k$) If this option is specified, the program tests whether the conditional expectation of $Y$ given $D$ is a $k$-degree polynomial in $D$. When `order = 0` is specified, the command tests the hypothesis that the conditional mean of $Y$ given $D$ is constant.
 
 ## References 
 
